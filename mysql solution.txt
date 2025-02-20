@@ -1,0 +1,21 @@
+﻿Use the mysqldump utility to create a backup of you database.
+Open up a Windows command prompt.
+Click Start -> Run
+Enter “cmd” into the dialog box and click the “OK” button.
+Change the directory to the following to access the mysqldump utility.
+cd C:\Program Files\MySQL\MySQL Server 5.5\bin
+Create a dump of your current mysql database or table (do not include the bracket symbols [ ] in your commands).
+Run the mysqldump.exe program using the following arguments:
+mysqldump.exe –e –u[username] -p[password] -h[hostname] [database name] > C:\[filename].sql
+
+Use the mysql utility to restore your database/table(s) dump to your Winhost MySQL database
+Note: The following command will only write the data that is in the .sql file. This will not drop and create the database or truncate any of your other tables in your database.  The command will script all the table data in the .sql file to your Winhost database. If you have a table name present in your Winhost database that matches a table name in the .sql file, the table will be overwritten with the new data. Otherwise the script will create a new table and populate it with the new data.
+
+Open up a windows command prompt.
+Click Start -> Run
+Enter “cmd” into the dialog box and click the “OK” button.
+Go to the directory that the mysql client utility is located.
+cd C:\Program Files\MySQL\MySQL Server 5.5\bin
+Import the dump of your database or table.
+Run the mysql.exe program using the following arguments.
+mysql –u[user name] -p[password] -h[hostname] [database name] < C:\[filename].sql
